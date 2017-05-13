@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <!--Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <style>
+        body {
+            height: 100%;
+            background-color: #eee;
+            font-family: "Helvetica Neue",Helvetica,Arial,Verdana,Tahoma;
+        }
+        .mui-panel {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0;
+            background-color: #FFF;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 2px 0 rgba(0,0,0,.12);
+        }
+        .mui-textfield {
+            display: block;
+            padding-top: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-wrapper indigo" style="padding-left: 20px">
+        <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Bookmarks</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+            <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+
+            <li><a href="mobile.html"><i class="material-icons">note_add</i></a></li>
+        </ul>
+    </div>
+</nav>
+<br><br><br>
+<div class="col-md-2"></div>
+
+<div class="col-md-8">
+<div class="mui-panel">
+
+        <legend>Title</legend>
+        <form class="mui-form--inline">
+            <div class="mui-textfield">
+                <input type="text">
+            </div>
+            <button class="mui-btn">submit</button>
+        </form>
+
+</div>
+    <script src="addpost.js"></script>
+    <script>
+        var data = {
+            "post_title": "TITLE_OF_BOOKMARK",
+            "post_image": "IMAGE_URL",
+            "post_by": "ID_OF_PERSON",
+            "post_description": "DESCIPTION",
+            "privacy": "0 for public and 1 for private"
+        };
+        add_data(data);
+    </script>
+</div>
+</body>
+</html>
