@@ -70,7 +70,6 @@
         </ul>
     </div>
 </nav>
-
 <div id="modal1" class="modal">
     <div class="modal-content">
         <h4>Add A Bookmark</h4>
@@ -96,8 +95,6 @@
         <a href="#!" class="modal-action waves-effect waves-red btn-flat " onclick="addpost()" id="addpostbutton">Upload</a>
     </div>
 </div>
-
-
 <div id="modal2" class="modal">
     <div class="modal-content">
         <h4>Delete Bookmark</h4>
@@ -120,37 +117,40 @@
     </div>
 </div>
 
-<div class="col-md-10" align="left" id="main_wrap">
-<br><br>
+<div class="row">
+    <div class="col s1"></div>
+    <div class="col s10">
+        <div id="main_wrap" class="row">
+            <div ng-app="app" ng-controller="ExampleController as vm">
+                <div class="col s12" style="text-align: center"><ul class="pagination" id="pagination-js-navigation"></ul></div>
+                <div class="col s3" ng-repeat="item in vm.items | orderBy:sortType:sortReverse" ng-show="([item] | filter:searchId).length > 0">
+                    <div class="card z-depth-3">
+                        <div class="card-image waves-effect waves-block waves-light" style="background: url('{{ item.image }}'); height: 200px; background-size: cover;">
+                            <!--<img class="activator" src="">-->
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">{{ item.titleDis }}<i class="material-icons right">more_vert</i></span>
+                            <p>
+                                <br>
+                                <a href="{{ item.link}}" target="_blank" class="btn waves-effect waves-light" type="submit" name="action">
+                                    <i class="material-icons center">launch</i>
+                                </a>
+                                <button class="btn waves-effect waves-light red" type="submit" name="action" id="{{item.id}}" onclick="open_delete_post_model(this.id)">
+                                    <i class="material-icons center">delete</i>
+                                </button>
+                            </p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4" style="font-size: 18px;">{{ item.title }}<i class="material-icons right">close</i></span>
+                            <p style="font-size: 16px;">{{item.des}}</p>
 
-    <div ng-app="app" ng-controller="ExampleController as vm">
-        <div class="col-md-12" style="text-align: center"><ul class="pagination" id="pagination-js-navigation"></ul></div>
-        <div class="col-md-3" ng-repeat="item in vm.items | orderBy:sortType:sortReverse" ng-show="([item] | filter:searchId).length > 0">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light" style="background: url('{{ item.image }}'); height: 200px; background-size: cover;">
-                    <!--<img class="activator" src="">-->
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ item.titleDis }}<i class="material-icons right">more_vert</i></span>
-                    <p>
-                        <br>
-                        <a href="{{ item.link}}" target="_blank" class="btn waves-effect waves-light" type="submit" name="action">
-                            <i class="material-icons center">launch</i>
-                        </a>
-                        <button class="btn waves-effect waves-light red" type="submit" name="action" id="{{item.id}}" onclick="open_delete_post_model(this.id)">
-                            <i class="material-icons center">delete</i>
-                        </button>
-                    </p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4" style="font-size: 18px;">{{ item.title }}<i class="material-icons right">close</i></span>
-                    <p style="font-size: 16px;">{{item.des}}</p>
-
+                        </div>
+                    </div>
                 </div>
             </div>
+            <br>
         </div>
     </div>
-        <br>
 </div>
 
 
@@ -178,7 +178,7 @@
         $('.modal').modal();
         $('#process').hide();
         $('#deleteprocess').hide();
-        document.body.style.zoom = .75;
+
     });
     function reload_window() {
         window.location.reload();
@@ -243,7 +243,7 @@
                 totalItems = data['count'];
                 items = data['results'];
                 $.each(items, function (key, value) {
-                    value["titleDis"] = value["title"].slice(0,35) + "...";
+                    value["titleDis"] = value["title"].slice(0,30) + "...";
                 })
             },
             async:false
@@ -251,10 +251,5 @@
         return items;
     }
 </script>
-<!--<script>-->
-    <!--function () {-->
-        <!---->
-    <!--}-->
-<!--</script>-->
 </body>
 </html>
